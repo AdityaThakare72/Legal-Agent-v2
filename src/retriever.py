@@ -1,0 +1,127 @@
+"""Hybrid retriever: ChromaDB vector search + BM25 keyword search.
+
+``langchain`` 1.x moved ``EnsembleRetriever`` into the ``langchain_classic``
+compatibility shim, which this project forbids. We therefore implement the
+ensemble directly using weighted Reciprocal Rank Fusion (RRF) over a Chroma
+vector retriever and a BM25 keyword retriever — the same fusion strategy
+``EnsembleRetriever`` uses.
+
+The vector half accepts an optional ChromaDB ``where`` filter (supplied by the
+classifier) to narrow semantic search by metadata; the BM25 keyword half always
+searches the whole corpus, which keeps retrieval robust even when the filter is
+too aggressive.
+"""
+
+from __future__ import annotations
+
+import logging
+from typing import Any
+
+from langchain_community.retrievers import BM25Retriever
+from langchain_core.documents import Document
+
+from config import ENSEMBLE_WEIGHTS, RETRIEVER_K
+
+logger = logging.getLogger(__name__)
+
+# RRF smoothing constant (matches LangChain's EnsembleRetriever default).
+RRF_C = 60
+
+
+class HybridRetriever:
+    """Weighted RRF ensemble of a vector retriever and a BM25 retriever.
+
+    Exposes ``.invoke(query)`` returning a fused, deduplicated list of
+    ``Document`` objects, so it is a drop-in for the rest of the pipeline.
+    """
+
+    def __init__(
+        self,
+        vector_store: Any,
+        bm25_retriever: Any,
+        weights: list[float],
+        top_k: int,
+    ) -> None:
+        self._vector_store = vector_store
+        self._bm25_retriever = bm25_retriever
+        self._vector_weight, self._bm25_weight = weights
+        self._top_k = top_k
+
+    def _vector_search(self, query: str, where: dict | None) -> list[Document]:
+        """Semantic search, optionally narrowed by a ChromaDB ``where`` filter."""
+        kwargs: dict[str, Any] = {"k": self._top_k}
+        if where:
+            kwargs["filter"] = where
+        return self._vector_store.similarity_search(query, **kwargs)
+
+    def invoke(self, query: str, where: dict | None = None) -> list[Document]:
+        """Retrieve from both sub-retrievers and fuse via weighted RRF.
+
+        Args:
+            query: The search query.
+            where: Optional ChromaDB metadata filter applied to the vector half
+                only. BM25 always searches the entire corpus.
+
+        Returns:
+            The top-``top_k`` fused documents, most relevant first.
+        """
+        sources = [
+            (lambda q: self._vector_search(q, where), self._vector_weight),
+            (self._bm25_retriever.invoke, self._bm25_weight),
+        ]
+
+        # doc key -> [document, fused_score]
+        fused: dict[str, list[Any]] = {}
+        for search, weight in sources:
+            try:
+                docs = search(query)
+            except Exception:
+                logger.exception("A sub-retriever failed; skipping it for this query.")
+                continue
+            for rank, doc in enumerate(docs, start=1):
+                key = doc.page_content
+                score = weight * (1.0 / (RRF_C + rank))
+                if key in fused:
+                    fused[key][1] += score
+                else:
+                    fused[key] = [doc, score]
+
+        ranked = sorted(fused.values(), key=lambda pair: pair[1], reverse=True)
+        return [doc for doc, _ in ranked[: self._top_k]]
+
+
+def build_hybrid_retriever(
+    vector_store: Any,
+    chunks_for_bm25: list[Document],
+) -> HybridRetriever:
+    """Build a hybrid retriever combining vector and keyword search.
+
+    Args:
+        vector_store: A LangChain Chroma vector store.
+        chunks_for_bm25: All documents in the collection, used to build the
+            in-memory BM25 index.
+
+    Returns:
+        A :class:`HybridRetriever` combining ChromaDB vector search and BM25
+        with the weights from ``config.ENSEMBLE_WEIGHTS``.
+
+    Raises:
+        RuntimeError: If either retriever cannot be constructed.
+    """
+    if not chunks_for_bm25:
+        raise RuntimeError("No documents supplied for the BM25 index.")
+
+    try:
+        bm25_retriever = BM25Retriever.from_documents(chunks_for_bm25)
+        bm25_retriever.k = RETRIEVER_K
+    except Exception as exc:
+        logger.exception("Failed to build BM25 retriever.")
+        raise RuntimeError(f"Could not build BM25 retriever: {exc}") from exc
+
+    logger.info(
+        "Hybrid retriever ready (vector k=%d, bm25 k=%d, weights=%s).",
+        RETRIEVER_K,
+        RETRIEVER_K,
+        ENSEMBLE_WEIGHTS,
+    )
+    return HybridRetriever(vector_store, bm25_retriever, ENSEMBLE_WEIGHTS, RETRIEVER_K)

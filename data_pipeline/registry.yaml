@@ -1,0 +1,81 @@
+# Manifest of all acts in the knowledge base.
+# build_database.py reads this file to know what to ingest and how.
+#
+# Each entry:
+#   slug:         unique id, used in deterministic chunk_id generation
+#   name:         full human-readable act / source name -> stored as act_name
+#   category:     one of config.LEGAL_CATEGORIES
+#   source_type:  kaggle_json | scraped | huggingface | manual_csv
+#   source_file:  path (relative to repo root) to the raw data
+#   chunk_type:   bare_act | explainer | definition | case_summary
+#   version:      free-form version tag
+#   last_updated: YYYY-MM-DD (drives --changed-only)
+#   status:       active | deprecated | superseded
+
+acts:
+  - slug: "motor_vehicle_act_1988"
+    name: "Motor Vehicle Act, 1988"
+    category: "Motor Vehicle & Transport"
+    source_type: "kaggle_json"
+    source_file: "data_pipeline/data/raw/motor_vehicle_act_1988.json"
+    chunk_type: "bare_act"
+    version: "v1-kaggle"
+    last_updated: "2025-10-20"
+    status: "active"
+
+  - slug: "nyaaya_explainers"
+    name: "Nyaaya Legal Explainers"
+    category: "General"
+    source_type: "scraped"
+    source_file: "data_pipeline/data/raw/nyaaya_explainers.csv"
+    chunk_type: "explainer"
+    version: "v1-scrape"
+    last_updated: "2025-09-08"
+    status: "active"
+
+  # Multi-act bare-act corpus (~1021 acts) from HuggingFace. act_name and
+  # section_number are set per-row from the dataset; category defaults to
+  # General (the dataset has no category field).
+  - slug: "indian_laws"
+    name: "Indian Laws (mratanusarkar)"
+    category: "General"
+    source_type: "huggingface"
+    source_file: "data_pipeline/data/raw/indian_laws.csv"
+    chunk_type: "bare_act"
+    version: "hf-mratanusarkar"
+    last_updated: "2026-07-25"
+    status: "active"
+
+  # The three 2023 criminal codes (effective 1 July 2024) that replaced the
+  # IPC, CrPC, and Indian Evidence Act. Source: HuggingFace
+  # GSMS-B/indian-legal-sections-bns-bnss-bsa-2023, split per act by
+  # scrapers/fetch_bns_codes.py.
+  - slug: "bns_2023"
+    name: "Bharatiya Nyaya Sanhita, 2023"
+    category: "Criminal Law"
+    source_type: "huggingface"
+    source_file: "data_pipeline/data/raw/bns_2023.csv"
+    chunk_type: "bare_act"
+    version: "hf-gsms-b"
+    last_updated: "2026-07-25"
+    status: "active"
+
+  - slug: "bnss_2023"
+    name: "Bharatiya Nagarik Suraksha Sanhita, 2023"
+    category: "Criminal Law"
+    source_type: "huggingface"
+    source_file: "data_pipeline/data/raw/bnss_2023.csv"
+    chunk_type: "bare_act"
+    version: "hf-gsms-b"
+    last_updated: "2026-07-25"
+    status: "active"
+
+  - slug: "bsa_2023"
+    name: "Bharatiya Sakshya Adhiniyam, 2023"
+    category: "Criminal Law"
+    source_type: "huggingface"
+    source_file: "data_pipeline/data/raw/bsa_2023.csv"
+    chunk_type: "bare_act"
+    version: "hf-gsms-b"
+    last_updated: "2026-07-25"
+    status: "active"

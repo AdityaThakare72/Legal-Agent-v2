@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+Legal_Agent_env/
+
+# Data pipeline artifacts (local only)
+data_pipeline/data/raw/
+data_pipeline/data/processed/
+
+# Local v1 archive (not deployed)
+_v1_archive/
+
+# OS / editor
+.directory
