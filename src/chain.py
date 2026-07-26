@@ -170,7 +170,7 @@ class LegalRAGChain:
                     yield text
         except Exception as exc:
             logger.exception("Generation streaming failed.")
-            yield f"\n\n⚠️ An error occurred while generating the response: {exc}"
+            yield f"\n\nAn error occurred while generating the response: {exc}"
 
 
 def build_rag_chain(vector_store: Any, api_key: str) -> LegalRAGChain:

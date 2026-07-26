@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="Legal Agent">
+  <!-- Fluted column: navy shaft with amber capital and base -->
+  <rect x="8" y="7" width="32" height="5" rx="2" fill="#D4A843"/>
+  <rect x="12.5" y="12.5" width="23" height="2.5" rx="1.25" fill="#1B2A4A"/>
+  <rect x="13" y="16" width="6" height="20" rx="1.5" fill="#1B2A4A"/>
+  <rect x="21" y="16" width="6" height="20" rx="1.5" fill="#1B2A4A"/>
+  <rect x="29" y="16" width="6" height="20" rx="1.5" fill="#1B2A4A"/>
+  <rect x="12.5" y="37" width="23" height="2.5" rx="1.25" fill="#1B2A4A"/>
+  <rect x="6" y="40" width="36" height="5" rx="2" fill="#D4A843"/>
+</svg>

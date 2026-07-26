@@ -10,6 +10,7 @@ try:
 except Exception:
     pass
 
+import html
 import logging
 import os
 import traceback
@@ -28,6 +29,7 @@ from config import (
     LEGAL_CATEGORIES,
 )
 from src.chain import build_rag_chain
+from src.styles import get_css
 from src.utils import format_sources
 
 logging.basicConfig(
@@ -35,6 +37,9 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
 )
 logger = logging.getLogger("legal_agent")
+
+_STATIC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
+FAVICON_PATH = os.path.join(_STATIC_DIR, "favicon.svg")
 
 EXAMPLE_QUESTIONS = [
     "What is the punishment for murder under the Bharatiya Nyaya Sanhita?",
@@ -44,9 +49,18 @@ EXAMPLE_QUESTIONS = [
 ]
 
 INITIAL_GREETING = (
-    "Hello! I am your Legal Agent for Indian law. Ask me a question and I'll "
+    "Hello. I am your Legal Agent for Indian law. Ask a question and I will "
     "answer using grounded, cited sources from my knowledge base."
 )
+
+
+def load_svg(name: str) -> str:
+    """Return the raw markup of an SVG in static/, or an empty string."""
+    try:
+        with open(os.path.join(_STATIC_DIR, name), "r", encoding="utf-8") as fh:
+            return fh.read()
+    except OSError:
+        return ""
 
 
 # --- Resource loading (cached) --------------------------------------------
@@ -96,7 +110,12 @@ def load_chain(_vector_store: Chroma):
 
 
 # --- Page setup ------------------------------------------------------------
-st.set_page_config(page_title="Legal Agent — Indian Law", page_icon="⚖️", layout="centered")
+st.set_page_config(
+    page_title="Legal Agent — Indian Law",
+    page_icon=FAVICON_PATH if os.path.exists(FAVICON_PATH) else None,
+    layout="wide",
+)
+st.markdown(get_css(), unsafe_allow_html=True)
 
 
 def reset_chat() -> None:
@@ -116,34 +135,52 @@ rag_chain = load_chain(vector_store)
 
 # --- Sidebar ---------------------------------------------------------------
 with st.sidebar:
-    st.title("⚖️ Legal Agent")
-    st.caption("Conversational RAG for Indian law")
-    st.button("🆕 New Chat", use_container_width=True, on_click=reset_chat)
+    st.markdown(
+        f"""
+        <div class="brand">
+            <div class="brand-logo">{load_svg("logo.svg")}</div>
+            <div class="brand-text">
+                <div class="brand-name">Legal Agent</div>
+                <div class="brand-sub">Indian Law Knowledge Base</div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-    st.divider()
+    st.button("New Chat", use_container_width=True, on_click=reset_chat, type="primary")
+
+    st.markdown('<div class="section-label">Filter by category</div>', unsafe_allow_html=True)
     st.selectbox(
         "Filter by category",
         options=["All categories", *LEGAL_CATEGORIES],
         key="category_filter",
-        help="Category-scoped retrieval arrives in a later phase.",
+        label_visibility="collapsed",
     )
 
-    st.divider()
-    st.subheader("Example questions")
+    st.markdown('<div class="section-label">Example questions</div>', unsafe_allow_html=True)
     for i, question in enumerate(EXAMPLE_QUESTIONS):
         if st.button(question, key=f"example_{i}", use_container_width=True):
             st.session_state.pending_query = question
 
-    st.divider()
-    st.caption(
-        "⚖️ This tool provides general legal information, not legal advice. "
-        "Consult a qualified lawyer for your specific situation."
+    st.markdown(
+        """
+        <div class="sidebar-disclaimer">
+            This tool provides general legal information, not legal advice.
+            Consult a qualified lawyer for your specific situation.
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
 
-# --- Main chat area --------------------------------------------------------
-st.title("⚖️ Your Personal Legal Agent")
-st.info("Ask a question about Indian law. Answers are grounded in cited sources.")
+# --- Main header -----------------------------------------------------------
+st.markdown('<div class="main-title">Legal Agent</div>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="info-bar">Ask a question about Indian law. Every answer is '
+    "grounded in cited sources from Indian legal acts and explainers.</div>",
+    unsafe_allow_html=True,
+)
 
 for message in st.session_state.chat_history:
     role = "assistant" if isinstance(message, AIMessage) else "user"
@@ -152,22 +189,32 @@ for message in st.session_state.chat_history:
 
 
 def render_sources(documents) -> None:
-    """Render retrieved sources in an expandable section."""
+    """Render retrieved sources as a clean expandable section (no emojis)."""
     if not documents:
         return
-    with st.expander(f"📚 Sources ({len(documents)})"):
+    with st.expander(f"Sources ({len(documents)})"):
+        parts: list[str] = []
         for i, src in enumerate(format_sources(documents), start=1):
-            heading = src["title"] or f"Source {i}"
+            title = src["title"] or f"Source {i}"
             if src["act_name"]:
-                heading = f"{src['act_name']} — {heading}"
-            st.markdown(f"**{i}. {heading}**")
-            meta_bits = [b for b in (src["category"], src["chunk_type"]) if b]
-            if meta_bits:
-                st.caption(" · ".join(meta_bits))
-            st.write(src["snippet"])
-            if src["source"]:
-                st.caption(f"Source: {src['source']}")
-            st.divider()
+                title = f"{src['act_name']} — {title}"
+            meta_bits = []
+            if src["section_number"]:
+                meta_bits.append(f"Section {src['section_number']}")
+            if src["category"]:
+                meta_bits.append(src["category"])
+            if src["chunk_type"]:
+                meta_bits.append(src["chunk_type"])
+            meta = " · ".join(meta_bits)
+            divider = "" if i == len(documents) else '<div class="source-divider"></div>'
+            parts.append(
+                f'<div class="source-item">'
+                f'<div class="source-title">{i}. {html.escape(title)}</div>'
+                f'<div class="source-meta">{html.escape(meta)}</div>'
+                f'<div class="source-snippet">{html.escape(src["snippet"])}</div>'
+                f"</div>{divider}"
+            )
+        st.markdown("".join(parts), unsafe_allow_html=True)
 
 
 def handle_query(user_query: str) -> None:
@@ -190,14 +237,17 @@ def handle_query(user_query: str) -> None:
             st.session_state.chat_history.append(AIMessage(content=answer))
         except Exception as exc:
             logger.exception("Error while answering query.")
-            st.error(f"An error occurred: {exc}")
+            st.markdown(
+                f'<div class="app-error">An error occurred: {html.escape(str(exc))}</div>',
+                unsafe_allow_html=True,
+            )
             st.session_state.chat_history.append(
                 AIMessage(content="Sorry, I encountered an error. Please try again.")
             )
 
 
 # Resolve input: a clicked example question, or the chat box.
-typed_query = st.chat_input("Type your legal question here…")
+typed_query = st.chat_input("Type your legal question here")
 query = typed_query
 if st.session_state.pending_query:
     query = st.session_state.pending_query

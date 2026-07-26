@@ -36,7 +36,7 @@ QA_SYSTEM_PROMPT = (
     "(BSA). When relevant, note the corresponding provision.\n"
     "4. Write in clear, plain language. Be precise and concise.\n"
     "5. Always end your answer with this disclaimer on its own line:\n"
-    "'⚖️ This is general legal information, not legal advice. Consult a "
+    "'This is general legal information, not legal advice. Consult a "
     "qualified lawyer for your specific situation.'\n\n"
     "Retrieved context:\n{context}"
 )
