@@ -114,6 +114,7 @@ st.set_page_config(
     page_title="Legal Agent — Indian Law",
     page_icon=FAVICON_PATH if os.path.exists(FAVICON_PATH) else None,
     layout="wide",
+    initial_sidebar_state="expanded",
 )
 st.markdown(get_css(), unsafe_allow_html=True)
 

@@ -25,7 +25,19 @@ footer { visibility: hidden; }
 [data-testid="stDecoration"],
 [data-testid="stStatusWidget"],
 [data-testid="stMainMenu"] { display: none !important; }
-header[data-testid="stHeader"] { background: transparent; height: 0; }
+/* Keep the header transparent but DO NOT collapse its height — a zero-height
+   header clips the sidebar expand control on Streamlit Cloud, leaving a
+   collapsed sidebar with no way to reopen it. */
+header[data-testid="stHeader"] { background: transparent; }
+
+/* Defensive: never let the chrome rules hide the sidebar or its toggle. */
+[data-testid="stSidebar"] { display: flex !important; visibility: visible !important; }
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="collapsedControl"],
+[data-testid="stSidebarCollapseButton"] {
+    display: block !important;
+    visibility: visible !important;
+}
 
 /* ---- Main area: clean white, centered, not edge-to-edge ---- */
 [data-testid="stAppViewContainer"] { background: #FFFFFF; }
