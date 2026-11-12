@@ -1,0 +1,4 @@
+# Extra dependency for mcp_server.py. Kept out of requirements.txt so the
+# Streamlit Cloud deploy is not affected.
+-r requirements.txt
+mcp>=2.0
