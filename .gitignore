@@ -20,3 +20,6 @@ _v1_archive/
 
 # OS / editor
 .directory
+
+# Eval embedding cache
+eval/.cache/
