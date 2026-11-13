@@ -28,14 +28,18 @@ logger = logging.getLogger(__name__)
 RRF_C = 60
 
 
-def drop_excluded_acts(documents: list[Document]) -> list[Document]:
-    """Remove chunks whose act_name is in ``config.EXCLUDED_ACTS``."""
-    return [doc for doc in documents if doc.metadata.get("act_name") not in EXCLUDED_ACTS]
+def drop_excluded_acts(
+    documents: list[Document], excluded_acts: list[str] = EXCLUDED_ACTS
+) -> list[Document]:
+    """Remove chunks whose act_name is in ``excluded_acts``."""
+    return [doc for doc in documents if doc.metadata.get("act_name") not in excluded_acts]
 
 
-def with_exclusion(where: dict | None) -> dict:
+def with_exclusion(where: dict | None, excluded_acts: list[str] = EXCLUDED_ACTS) -> dict | None:
     """Add the excluded-acts condition to a ChromaDB ``where`` filter."""
-    exclude = {"act_name": {"$nin": list(EXCLUDED_ACTS)}}
+    if not excluded_acts:
+        return where
+    exclude = {"act_name": {"$nin": list(excluded_acts)}}
     if not where:
         return exclude
     return {"$and": [where, exclude]}
@@ -54,8 +58,10 @@ class HybridRetriever:
         bm25_retriever: Any,
         weights: list[float],
         top_k: int,
+        excluded_acts: list[str] = EXCLUDED_ACTS,
     ) -> None:
         self._vector_store = vector_store
+        self._excluded_acts = list(excluded_acts)
         self._bm25_retriever = bm25_retriever
         self._vector_weight, self._bm25_weight = weights
         self._top_k = top_k
@@ -65,20 +71,26 @@ class HybridRetriever:
 
     def _vector_search(self, query: str, where: dict | None) -> list[Document]:
         """Semantic search, optionally narrowed by a ChromaDB ``where`` filter."""
-        if EXCLUDED_ACTS:
-            where = with_exclusion(where)
+        where = with_exclusion(where, self._excluded_acts)
         kwargs: dict[str, Any] = {"k": self._top_k}
         if where:
             kwargs["filter"] = where
         return self._vector_store.similarity_search(query, **kwargs)
 
-    def invoke(self, query: str, where: dict | None = None) -> list[Document]:
-        """Retrieve from both sub-retrievers and fuse via weighted RRF.
+    def invoke(
+        self,
+        query: str,
+        where: dict | None = None,
+        use: tuple[str, ...] = ("vector", "bm25"),
+    ) -> list[Document]:
+        """Retrieve from the sub-retrievers and fuse via weighted RRF.
 
         Args:
             query: The search query.
             where: Optional ChromaDB metadata filter applied to the vector half
                 only. BM25 always searches the entire corpus.
+            use: Which sub-retrievers to run. Both by default; the eval runner
+                passes one of them to measure it alone.
 
         Returns:
             The top-``top_k`` fused documents, most relevant first.
@@ -87,6 +99,7 @@ class HybridRetriever:
             ("vector", lambda q: self._vector_search(q, where), self._vector_weight),
             ("bm25", self._bm25_retriever.invoke, self._bm25_weight),
         ]
+        sources = [source for source in sources if source[0] in use]
 
         self.last_failures = []
         # doc key -> [document, fused_score]
@@ -113,13 +126,16 @@ class HybridRetriever:
 def build_hybrid_retriever(
     vector_store: Any,
     chunks_for_bm25: list[Document],
+    excluded_acts: list[str] = EXCLUDED_ACTS,
 ) -> HybridRetriever:
     """Build a hybrid retriever combining vector and keyword search.
 
     Args:
         vector_store: A LangChain Chroma vector store.
         chunks_for_bm25: All documents in the collection, used to build the
-            in-memory BM25 index. Chunks of ``EXCLUDED_ACTS`` are dropped.
+            in-memory BM25 index. Chunks of ``excluded_acts`` are dropped.
+        excluded_acts: Acts kept out of both halves. Defaults to
+            ``config.EXCLUDED_ACTS``; the eval passes [] for "before" numbers.
 
     Returns:
         A :class:`HybridRetriever` combining ChromaDB vector search and BM25
@@ -128,7 +144,7 @@ def build_hybrid_retriever(
     Raises:
         RuntimeError: If either retriever cannot be constructed.
     """
-    chunks_for_bm25 = drop_excluded_acts(chunks_for_bm25)
+    chunks_for_bm25 = drop_excluded_acts(chunks_for_bm25, excluded_acts)
     if not chunks_for_bm25:
         raise RuntimeError("No documents supplied for the BM25 index.")
 
@@ -145,4 +161,6 @@ def build_hybrid_retriever(
         RETRIEVER_K,
         ENSEMBLE_WEIGHTS,
     )
-    return HybridRetriever(vector_store, bm25_retriever, ENSEMBLE_WEIGHTS, RETRIEVER_K)
+    return HybridRetriever(
+        vector_store, bm25_retriever, ENSEMBLE_WEIGHTS, RETRIEVER_K, excluded_acts
+    )
