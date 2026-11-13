@@ -59,6 +59,9 @@ class HybridRetriever:
         self._bm25_retriever = bm25_retriever
         self._vector_weight, self._bm25_weight = weights
         self._top_k = top_k
+        # Names of the sub-retrievers ("vector", "bm25") that failed on the
+        # last invoke. Callers that want to warn about degraded results read it.
+        self.last_failures: list[str] = []
 
     def _vector_search(self, query: str, where: dict | None) -> list[Document]:
         """Semantic search, optionally narrowed by a ChromaDB ``where`` filter."""
@@ -81,17 +84,19 @@ class HybridRetriever:
             The top-``top_k`` fused documents, most relevant first.
         """
         sources = [
-            (lambda q: self._vector_search(q, where), self._vector_weight),
-            (self._bm25_retriever.invoke, self._bm25_weight),
+            ("vector", lambda q: self._vector_search(q, where), self._vector_weight),
+            ("bm25", self._bm25_retriever.invoke, self._bm25_weight),
         ]
 
+        self.last_failures = []
         # doc key -> [document, fused_score]
         fused: dict[str, list[Any]] = {}
-        for search, weight in sources:
+        for name, search, weight in sources:
             try:
                 docs = search(query)
             except Exception:
-                logger.exception("A sub-retriever failed; skipping it for this query.")
+                logger.exception("The %s retriever failed; skipping it for this query.", name)
+                self.last_failures.append(name)
                 continue
             for rank, doc in enumerate(docs, start=1):
                 key = doc.page_content
