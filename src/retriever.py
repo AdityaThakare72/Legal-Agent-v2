@@ -20,12 +20,25 @@ from typing import Any
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
 
-from config import ENSEMBLE_WEIGHTS, RETRIEVER_K
+from config import ENSEMBLE_WEIGHTS, EXCLUDED_ACTS, RETRIEVER_K
 
 logger = logging.getLogger(__name__)
 
 # RRF smoothing constant (matches LangChain's EnsembleRetriever default).
 RRF_C = 60
+
+
+def drop_excluded_acts(documents: list[Document]) -> list[Document]:
+    """Remove chunks whose act_name is in ``config.EXCLUDED_ACTS``."""
+    return [doc for doc in documents if doc.metadata.get("act_name") not in EXCLUDED_ACTS]
+
+
+def with_exclusion(where: dict | None) -> dict:
+    """Add the excluded-acts condition to a ChromaDB ``where`` filter."""
+    exclude = {"act_name": {"$nin": list(EXCLUDED_ACTS)}}
+    if not where:
+        return exclude
+    return {"$and": [where, exclude]}
 
 
 class HybridRetriever:
@@ -49,6 +62,8 @@ class HybridRetriever:
 
     def _vector_search(self, query: str, where: dict | None) -> list[Document]:
         """Semantic search, optionally narrowed by a ChromaDB ``where`` filter."""
+        if EXCLUDED_ACTS:
+            where = with_exclusion(where)
         kwargs: dict[str, Any] = {"k": self._top_k}
         if where:
             kwargs["filter"] = where
@@ -99,7 +114,7 @@ def build_hybrid_retriever(
     Args:
         vector_store: A LangChain Chroma vector store.
         chunks_for_bm25: All documents in the collection, used to build the
-            in-memory BM25 index.
+            in-memory BM25 index. Chunks of ``EXCLUDED_ACTS`` are dropped.
 
     Returns:
         A :class:`HybridRetriever` combining ChromaDB vector search and BM25
@@ -108,6 +123,7 @@ def build_hybrid_retriever(
     Raises:
         RuntimeError: If either retriever cannot be constructed.
     """
+    chunks_for_bm25 = drop_excluded_acts(chunks_for_bm25)
     if not chunks_for_bm25:
         raise RuntimeError("No documents supplied for the BM25 index.")
 

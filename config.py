@@ -49,6 +49,9 @@ COLLECTION_NAME = "legal_docs_v2"
 # EnsembleRetriever weights: [vector, bm25]
 ENSEMBLE_WEIGHTS = [0.5, 0.5]
 
+# Mislabelled in chroma_db: a mixed Kaggle file of many acts got this one name.
+EXCLUDED_ACTS = ["Motor Vehicle Act, 1988"]
+
 # --- Chunking (used by data_pipeline only) ---------------------------------
 CHUNK_SIZE = 1000               # characters (~250 tokens)
 CHUNK_OVERLAP = 200             # 20% overlap
