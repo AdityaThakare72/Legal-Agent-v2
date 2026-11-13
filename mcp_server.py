@@ -237,7 +237,7 @@ def search_indian_law(
     category: str | None = None,
     act_name: str | None = None,
     top_k: int = 5,
-) -> list[dict]:
+) -> dict:
     """Search Indian legal acts with hybrid retrieval (BM25 + vector, RRF).
 
     Args:
@@ -247,10 +247,19 @@ def search_indian_law(
         top_k: Number of chunks to return (1 to 10).
 
     Returns:
-        Chunks, most relevant first, each with act_name, section_number, title,
-        category, source and text.
+        {"results": [...], "warning": str | None}. Results are chunks, most
+        relevant first, each with act_name, section_number, title, category,
+        source and text. warning is set when the results are degraded.
     """
-    return _run(lambda index: index.search(query, category=category, act_name=act_name, top_k=top_k))
+
+    def run(index: LegalIndex) -> dict:
+        results = index.search(query, category=category, act_name=act_name, top_k=top_k)
+        warning = None
+        if "vector" in index.retriever.last_failures:
+            warning = "Vector search failed, so these results are keyword-only (BM25)."
+        return {"results": results, "warning": warning}
+
+    return _run(run)
 
 
 @mcp.tool()
