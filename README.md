@@ -51,15 +51,19 @@ pytest tests/test_mcp_server.py
 | after_hybrid | 0.27 | 0.69 | 0.450 | 0.0% | 386 ms |
 | after_bm25 | 0.03 | 0.08 | 0.056 | 0.0% | 238 ms |
 | after_vector | 0.40 | 0.77 | 0.561 | 0.0% | 129 ms |
+| after_bm25_tok | 0.09 | 0.23 | 0.142 | 0.0% | 154 ms |
+| after_hybrid_tok | 0.28 | 0.74 | 0.467 | 0.0% | 286 ms |
 
-Leaving out the mislabelled "Motor Vehicle Act, 1988" chunks removes every wrong-act result (7.4% of returned chunks before) and lifts hybrid MRR@10 from 0.417 to 0.450. The ablation shows BM25 is the weak half: on its own it finds a gold chunk in the top 5 for 8% of questions, and vector search alone beats the hybrid on hit rate, MRR and latency. The exclusion filter costs about 130 ms per vector query, which is why the after runs are slower.
+Leaving out the mislabelled "Motor Vehicle Act, 1988" chunks removed every wrong-act result (7.4% of returned chunks before) and lifted hybrid MRR@10 from 0.417 to 0.450. The ablation then showed BM25 failing even on exact section lookups (hit@10 of 0.07 on questions like "What does section 303 of BNS say?"). The cause was the BM25 index splitting text on whitespace only, so "303" never matched "303." and "theft" never matched "Theft.—(1)". With a tokenizer that lowercases, keeps only letters and digits and drops a short stopword list (the `_tok` rows), BM25 alone went from 0.056 to 0.142 MRR@10 and hybrid from 0.450 to 0.467 (hit@5 0.69 to 0.74); the same tokenizer without stopword removal gave hybrid 0.447. Hybrid still trails vector search alone (MRR@10 0.467 against 0.561, hit@1 0.28 against 0.40).
+
+Latency: on the same 78 queries with cached embeddings, the `$nin` filter that keeps the excluded act out takes a vector query from 1.2 ms to about 132 ms (p50), which is why the after hybrid runs are slower than before_hybrid.
 
 Caveats: 78 questions, drafted from corpus chunks and hand-verified; one run each; latency is local retrieval only (query embeddings are cached, so the Gemini call is not counted); gold labels are sections, so an explainer on the right topic counts as a miss. Each results file also has scores without the 8 questions marked `known_issue`.
 
 ```bash
 python eval/run_eval.py --mode hybrid --include-excluded --label before_hybrid
-python eval/run_eval.py --mode hybrid --label after_hybrid    # also --mode bm25 / vector
-python eval/compare.py before_hybrid after_hybrid after_bm25 after_vector
+python eval/run_eval.py --mode hybrid --label after_hybrid_tok    # also --mode bm25 / vector
+python eval/compare.py before_hybrid after_hybrid after_bm25 after_vector after_bm25_tok after_hybrid_tok
 pytest tests/test_eval_metrics.py
 ```
 
