@@ -39,7 +39,7 @@ from config import (
     LEGAL_CATEGORIES,
     RETRIEVER_K,
 )
-from src.retriever import build_hybrid_retriever
+from src.retriever import build_hybrid_retriever, drop_excluded_acts
 from src.utils import load_bm25_documents
 
 # stdout carries the MCP protocol on stdio transport, so logs must go to stderr.
@@ -51,7 +51,7 @@ class LegalIndex:
     """All chunks in memory plus the hybrid retriever built over them."""
 
     def __init__(self, vector_store: Any) -> None:
-        self.documents: list[Document] = load_bm25_documents(vector_store)
+        self.documents: list[Document] = drop_excluded_acts(load_bm25_documents(vector_store))
         self.retriever = build_hybrid_retriever(vector_store, self.documents)
 
     def search(
