@@ -6,42 +6,37 @@ Deployed on [Streamlit Community Cloud](https://streamlit.io/cloud).
 
 ## MCP server
 
-`mcp_server.py` exposes the same hybrid retriever (BM25 + vector search, fused with RRF) over the Model Context Protocol, so an MCP client such as Claude Desktop can search the knowledge base directly.
+`mcp_server.py` exposes the same hybrid retriever over MCP, so any MCP client can search the knowledge base.
 
-| Name | Kind | What it does |
-| --- | --- | --- |
-| `search_indian_law` | tool | Hybrid search. Optional `category` and `act_name` filters, `top_k` from 1 to 10. Returns chunks with act name, section number, title, category, source and text. |
-| `list_acts` | tool | Lists acts with their chunk counts. Use it to get the exact `act_name` for a filtered search. |
-| `legal://categories` | resource | The categories every chunk is tagged with. |
+- `search_indian_law` (tool): hybrid search, optional `category` / `act_name` filter, `top_k` 1 to 10
+- `list_acts` (tool): acts with chunk counts, gives the exact `act_name` to filter on
+- `legal://categories` (resource): the category list
 
-No LLM runs inside the server. The app's classifier and reranker are left out on purpose: the client's model chooses the filter and writes the answer. The only API call is the Gemini embedding of the query.
-
-Setup (the database is stored with Git LFS, so run `git lfs pull` after cloning):
+No LLM runs in the server. The classifier and reranker are skipped, the client model picks the filter and writes the answer. The only API call is the query embedding.
 
 ```bash
+git lfs pull                          # chroma_db is stored with Git LFS
 pip install -r requirements-mcp.txt
-echo "GOOGLE_API_KEY=your-key" > .env
-python mcp_server.py   # stdio transport
+python mcp_server.py                  # stdio
 ```
 
-Claude Desktop config:
+Needs `GOOGLE_API_KEY` in `.env`. The first call is slow because it loads all chunks and builds the BM25 index.
+
+Client config:
 
 ```json
 {
   "mcpServers": {
     "indian-law": {
       "command": "python",
-      "args": ["/absolute/path/to/Legal-Agent-v2/mcp_server.py"]
+      "args": ["/path/to/Legal-Agent-v2/mcp_server.py"]
     }
   }
 }
 ```
 
-The first tool call is slow, because it loads every chunk and builds the BM25 index. Later calls reuse it.
-
-Tests use a small throwaway ChromaDB with fake embeddings, so they need no API key:
+Tests need no API key, they use a tiny throwaway db:
 
 ```bash
-pip install pytest
 pytest tests/test_mcp_server.py
 ```
