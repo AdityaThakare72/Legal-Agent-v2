@@ -1,0 +1,3305 @@
+{
+  "label": "after_hybrid_tok",
+  "mode": "hybrid",
+  "excluded_acts": [
+    "Motor Vehicle Act, 1988"
+  ],
+  "top_k": 10,
+  "summary": {
+    "all": {
+      "n": 78,
+      "hit@1": 0.28205128205128205,
+      "hit@3": 0.5897435897435898,
+      "hit@5": 0.7435897435897436,
+      "hit@10": 0.8333333333333334,
+      "mrr@10": 0.46703296703296704,
+      "wrong_act_rate": 0.0
+    },
+    "without_known_issues": {
+      "n": 70,
+      "hit@1": 0.2571428571428571,
+      "hit@3": 0.5714285714285714,
+      "hit@5": 0.7428571428571429,
+      "hit@10": 0.8428571428571429,
+      "mrr@10": 0.4489795918367347,
+      "wrong_act_rate": 0.0
+    },
+    "by_type": {
+      "explainer": {
+        "n": 10,
+        "hit@1": 0.3,
+        "hit@3": 0.6,
+        "hit@5": 0.8,
+        "hit@10": 0.9,
+        "mrr@10": 0.4791666666666667,
+        "wrong_act_rate": 0.0
+      },
+      "old_law": {
+        "n": 11,
+        "hit@1": 0.09090909090909091,
+        "hit@3": 0.36363636363636365,
+        "hit@5": 0.5454545454545454,
+        "hit@10": 0.6363636363636364,
+        "mrr@10": 0.2681818181818182,
+        "wrong_act_rate": 0.0
+      },
+      "plain": {
+        "n": 42,
+        "hit@1": 0.21428571428571427,
+        "hit@3": 0.5238095238095238,
+        "hit@5": 0.7142857142857143,
+        "hit@10": 0.8333333333333334,
+        "mrr@10": 0.41318027210884356,
+        "wrong_act_rate": 0.0
+      },
+      "section_ref": {
+        "n": 15,
+        "hit@1": 0.6,
+        "hit@3": 0.9333333333333333,
+        "hit@5": 0.9333333333333333,
+        "hit@10": 0.9333333333333333,
+        "mrr@10": 0.7555555555555555,
+        "wrong_act_rate": 0.0
+      }
+    },
+    "by_category": {
+      "Constitutional Law": {
+        "n": 2,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "wrong_act_rate": 0.0
+      },
+      "Consumer Protection": {
+        "n": 4,
+        "hit@1": 0.0,
+        "hit@3": 0.5,
+        "hit@5": 0.75,
+        "hit@10": 1.0,
+        "mrr@10": 0.2523809523809524,
+        "wrong_act_rate": 0.0
+      },
+      "Contract & Commercial": {
+        "n": 3,
+        "hit@1": 0.6666666666666666,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr@10": 0.8333333333333334,
+        "wrong_act_rate": 0.0
+      },
+      "Criminal Law": {
+        "n": 31,
+        "hit@1": 0.16129032258064516,
+        "hit@3": 0.45161290322580644,
+        "hit@5": 0.6451612903225806,
+        "hit@10": 0.7741935483870968,
+        "mrr@10": 0.36025345622119814,
+        "wrong_act_rate": 0.0
+      },
+      "Cyber & IT Law": {
+        "n": 5,
+        "hit@1": 0.4,
+        "hit@3": 0.6,
+        "hit@5": 0.6,
+        "hit@10": 0.6,
+        "mrr@10": 0.5,
+        "wrong_act_rate": 0.0
+      },
+      "Environmental Law": {
+        "n": 1,
+        "hit@1": 0.0,
+        "hit@3": 0.0,
+        "hit@5": 0.0,
+        "hit@10": 1.0,
+        "mrr@10": 0.125,
+        "wrong_act_rate": 0.0
+      },
+      "Family Law": {
+        "n": 10,
+        "hit@1": 0.2,
+        "hit@3": 0.5,
+        "hit@5": 0.8,
+        "hit@10": 0.8,
+        "mrr@10": 0.425,
+        "wrong_act_rate": 0.0
+      },
+      "General": {
+        "n": 1,
+        "hit@1": 0.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr@10": 0.3333333333333333,
+        "wrong_act_rate": 0.0
+      },
+      "Labour & Employment": {
+        "n": 7,
+        "hit@1": 0.2857142857142857,
+        "hit@3": 0.7142857142857143,
+        "hit@5": 0.8571428571428571,
+        "hit@10": 1.0,
+        "mrr@10": 0.501360544217687,
+        "wrong_act_rate": 0.0
+      },
+      "Motor Vehicle & Transport": {
+        "n": 5,
+        "hit@1": 0.4,
+        "hit@3": 0.8,
+        "hit@5": 0.8,
+        "hit@10": 0.8,
+        "mrr@10": 0.5666666666666667,
+        "wrong_act_rate": 0.0
+      },
+      "Property & Real Estate": {
+        "n": 6,
+        "hit@1": 0.5,
+        "hit@3": 0.8333333333333334,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr@10": 0.7,
+        "wrong_act_rate": 0.0
+      },
+      "Right to Information": {
+        "n": 2,
+        "hit@1": 0.5,
+        "hit@3": 0.5,
+        "hit@5": 0.5,
+        "hit@10": 0.5,
+        "mrr@10": 0.5,
+        "wrong_act_rate": 0.0
+      },
+      "Tax Law": {
+        "n": 1,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "wrong_act_rate": 0.0
+      }
+    },
+    "latency_ms": {
+      "p50": 286.19,
+      "p95": 395.87
+    }
+  },
+  "questions": [
+    {
+      "id": "q001",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 3,
+      "latency_ms": 392.01,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/facing-violence-during-theft/",
+          "title": "Facing Violence during Theft"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-is-invasion-of-privacy-a-sexual-crime/",
+          "title": "How is Invasion of Privacy a Sexual Crime?"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "304",
+          "source": "Section 304, BNS 2023",
+          "title": "Snatching"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-do-you-complain-against-sexual-crimes/",
+          "title": "How do you Complain against Sexual Crimes?"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "176",
+          "source": "Section 176, BNSS 2023",
+          "title": "Procedure for investigation"
+        }
+      ]
+    },
+    {
+      "id": "q002",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 379.91,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-stalking/",
+          "title": "What is Stalking?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        }
+      ]
+    },
+    {
+      "id": "q003",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 316.15,
+      "top5": [
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "106",
+          "source": "Section 106, BNS 2023",
+          "title": "Causing death by negligence"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-do-you-complain-against-sexual-crimes/",
+          "title": "How do you Complain against Sexual Crimes?"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "102",
+          "source": "Section 102, BNS 2023",
+          "title": "Culpable homicide by causing death of person other than person whose death was"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-do-you-complain-against-sexual-crimes/",
+          "title": "How do you Complain against Sexual Crimes?"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "25",
+          "source": "Section 25, BNS 2023",
+          "title": "Act not intended and not known to be likely to cause death or grievous hurt, done by consent"
+        }
+      ]
+    },
+    {
+      "id": "q004",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 7,
+      "latency_ms": 411.47,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/guidelines-for-arrests-in-cruelty-and-dowry-cases/",
+          "title": "Guidelines for Arrests in Cruelty and Dowry Cases"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-dowry/",
+          "title": "What is Dowry?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/mehr-and-dower-not-dowry/",
+          "title": "Mehr and Dower Not Dowry"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-about-a-demand-for-dowry/",
+          "title": "Complaining about a Demand for Dowry"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/maintaining-a-list-of-gifts-during-marriage/",
+          "title": "Maintaining A List Of Gifts During Marriage"
+        }
+      ]
+    },
+    {
+      "id": "q005",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 4,
+      "latency_ms": 270.84,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/abuse-of-position-or-authority/",
+          "title": "Abuse of Position or Authority"
+        },
+        {
+          "act_name": "Criminal Law (Amendment) Act, 2013",
+          "section_number": "7",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Criminal Law (Amendment) Act, 2013, Section 7"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/marital-rape/",
+          "title": "Marital Rape"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "77",
+          "source": "Section 77, BNS 2023",
+          "title": "Voyeurism"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "77",
+          "source": "Section 77, BNS 2023",
+          "title": "Voyeurism"
+        }
+      ]
+    },
+    {
+      "id": "q006",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 316.29,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/who-can-you-complain-to-about-a-grievance-under-air-pollution-law/",
+          "title": "Who can you complain to about a grievance under air pollution law?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/who-can-you-complain-to-about-a-grievance-under-air-pollution-law/",
+          "title": "Who can you complain to about a grievance under air pollution law?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-to-file-a-complaint-for-safai-karamcharis/",
+          "title": "How to file a complaint for Safai Karamcharis?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/who-can-you-complain-to-about-a-grievance-under-air-pollution-law/",
+          "title": "Who can you complain to about a grievance under air pollution law?"
+        }
+      ]
+    },
+    {
+      "id": "q007",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 8,
+      "latency_ms": 390.57,
+      "top5": [
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "41",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 41"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "50",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 50"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "43",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 43"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "480",
+          "source": "Section 480, BNSS 2023",
+          "title": "When bail may be taken in case of non-bailable offence"
+        },
+        {
+          "act_name": "Indian Tramways Act, 1886",
+          "section_number": "31",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Indian Tramways Act, 1886, Section 31"
+        }
+      ]
+    },
+    {
+      "id": "q008",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": "BNSS 58 heading sits over the text of s.59 in the DB.",
+      "rank": 2,
+      "latency_ms": 395.87,
+      "top5": [
+        {
+          "act_name": "Prisoners Act, 1900",
+          "section_number": "13",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Prisoners Act, 1900, Section 13"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "57",
+          "source": "Section 57, BNSS 2023",
+          "title": "Person arrested to be taken before Magistrate or officer in charge of police station"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/arrest-without-warrant/",
+          "title": "Arrest Without Warrant"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "56",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 56"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "392",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 392"
+        }
+      ]
+    },
+    {
+      "id": "q009",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 324.68,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/appearance-before-magistrate-after-arrest/",
+          "title": "Appearance before Magistrate after Arrest"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "38",
+          "source": "Section 38, BNSS 2023",
+          "title": "Right of arrested person to meet an advocate of his choice during interrogation"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-complaint-for-online-bank-fraud/",
+          "title": "Filing a complaint for Online Bank Fraud"
+        },
+        {
+          "act_name": "Constitution of India, 1949",
+          "section_number": "22",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Constitution of India, 1949, Section 22"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        }
+      ]
+    },
+    {
+      "id": "q010",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 5,
+      "latency_ms": 286.19,
+      "top5": [
+        {
+          "act_name": "Bharatiya Sakshya Adhiniyam, 2023",
+          "section_number": "2",
+          "source": "Section 2, BSA 2023",
+          "title": "Definitions"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Unlawful Activities (Prevention) Act, 1967",
+          "section_number": "46",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Unlawful Activities (Prevention) Act, 1967, Section 46"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Bharatiya Sakshya Adhiniyam, 2023",
+          "section_number": "63",
+          "source": "Section 63, BSA 2023",
+          "title": "Admissibility of electronic records"
+        }
+      ]
+    },
+    {
+      "id": "q011",
+      "type": "plain",
+      "category": "Consumer Protection",
+      "known_issue": null,
+      "rank": 5,
+      "latency_ms": 295.29,
+      "top5": [
+        {
+          "act_name": "Consumer Protection Act, 1986",
+          "section_number": "13",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 1986, Section 13"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-against-a-pharmacist/",
+          "title": "Complaining against a Pharmacist"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/right-to-publish/",
+          "title": "Right to Publish"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/casting-of-votes/",
+          "title": "Casting of Votes"
+        },
+        {
+          "act_name": "Consumer Protection Act, 2019",
+          "section_number": "69",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 2019, Section 69"
+        }
+      ]
+    },
+    {
+      "id": "q012",
+      "type": "plain",
+      "category": "Consumer Protection",
+      "known_issue": null,
+      "rank": 3,
+      "latency_ms": 340.42,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/right-to-advertise-through-comparison-with-other-products/",
+          "title": "Right to Advertise through Comparison with Other Products"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        },
+        {
+          "act_name": "Consumer Protection Act, 2019",
+          "section_number": "84",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 2019, Section 84"
+        },
+        {
+          "act_name": "Indian Evidence Act, 1872",
+          "section_number": "29",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Indian Evidence Act, 1872, Section 29"
+        },
+        {
+          "act_name": "Consumer Protection Act, 2019",
+          "section_number": "83",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 2019, Section 83"
+        }
+      ]
+    },
+    {
+      "id": "q013",
+      "type": "plain",
+      "category": "Consumer Protection",
+      "known_issue": null,
+      "rank": 7,
+      "latency_ms": 325.15,
+      "top5": [
+        {
+          "act_name": "Consumer Protection Act, 1986",
+          "section_number": "17",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 1986, Section 17"
+        },
+        {
+          "act_name": "Consumer Protection Act, 1986",
+          "section_number": "11",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 1986, Section 11"
+        },
+        {
+          "act_name": "Telecom Regulatory Authority of India Act, 1997",
+          "section_number": "14",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Telecom Regulatory Authority of India Act, 1997, Section 14"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-against-an-architect/",
+          "title": "Complaining against an Architect"
+        },
+        {
+          "act_name": "Consumer Protection Act, 1986",
+          "section_number": "21",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 1986, Section 21"
+        }
+      ]
+    },
+    {
+      "id": "q014",
+      "type": "plain",
+      "category": "Motor Vehicle & Transport",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 259.74,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/driving-without-a-license/",
+          "title": "Driving Without A License"
+        },
+        {
+          "act_name": "National Service Act, 1972",
+          "section_number": "13",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "National Service Act, 1972, Section 13"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/obscene-materials-and-sexual-harassment/",
+          "title": "Obscene Materials and Sexual Harassment"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-are-the-punishments-for-unlawful-associations-and-activities/",
+          "title": "What are the punishments for unlawful associations and activities?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-complaint-for-online-bank-fraud/",
+          "title": "Filing a complaint for Online Bank Fraud"
+        }
+      ]
+    },
+    {
+      "id": "q015",
+      "type": "plain",
+      "category": "Motor Vehicle & Transport",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 272.37,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/disobeying-the-speed-limit/",
+          "title": "Disobeying the speed limit"
+        },
+        {
+          "act_name": "Motor Vehicles Act, 1988",
+          "section_number": "4",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Motor Vehicles Act, 1988, Section 4"
+        },
+        {
+          "act_name": "Police Act, 1861",
+          "section_number": "31",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Police Act, 1861, Section 31"
+        },
+        {
+          "act_name": "Delhi Motor Vehicles Taxation Act, 1962",
+          "section_number": "34",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Motor Vehicles Taxation Act, 1962, Section 34"
+        },
+        {
+          "act_name": "Code on Social Security Act, 2020",
+          "section_number": "2",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Social Security Act, 2020, Section 2"
+        }
+      ]
+    },
+    {
+      "id": "q016",
+      "type": "plain",
+      "category": "Motor Vehicle & Transport",
+      "known_issue": null,
+      "rank": 3,
+      "latency_ms": 249.53,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/driving-without-a-license/",
+          "title": "Driving Without A License"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/disobeying-the-speed-limit/",
+          "title": "Disobeying the speed limit"
+        },
+        {
+          "act_name": "Motor Vehicles Act, 1988",
+          "section_number": "196",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Motor Vehicles Act, 1988, Section 196"
+        },
+        {
+          "act_name": "War Injuries (Compensation Insurance) Act, 1943",
+          "section_number": "9",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "War Injuries (Compensation Insurance) Act, 1943, Section 9"
+        },
+        {
+          "act_name": "Income-Tax Act, 1961",
+          "section_number": "28",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Income-Tax Act, 1961, Section 28"
+        }
+      ]
+    },
+    {
+      "id": "q017",
+      "type": "plain",
+      "category": "Motor Vehicle & Transport",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 264.52,
+      "top5": [
+        {
+          "act_name": "Motor Vehicles Act, 1988",
+          "section_number": "134",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Motor Vehicles Act, 1988, Section 134"
+        },
+        {
+          "act_name": "Works of Defence Act, 1903",
+          "section_number": "4",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Works of Defence Act, 1903, Section 4"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "397",
+          "source": "Section 397, BNSS 2023",
+          "title": "Treatment of victims"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-child-marriages/",
+          "title": "Reporting Child Marriages"
+        },
+        {
+          "act_name": "Motor Vehicles Act, 1988",
+          "section_number": "132",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Motor Vehicles Act, 1988, Section 132"
+        }
+      ]
+    },
+    {
+      "id": "q018",
+      "type": "plain",
+      "category": "Family Law",
+      "known_issue": null,
+      "rank": 4,
+      "latency_ms": 257.15,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/cheating-by-spouse-and-hindu-marriage-law/",
+          "title": "Cheating by Spouse and Hindu Marriage Law"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/cruel-behaviour-and-hindu-marriage-law/",
+          "title": "Cruel Behaviour and Hindu Marriage Law"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/muslim-divorce-due-to-missing-husband/",
+          "title": "Muslim Divorce due to Missing Husband"
+        },
+        {
+          "act_name": "Hindu Marriage Act, 1955",
+          "section_number": "13",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Hindu Marriage Act, 1955, Section 13"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/muslim-divorce-if-husband-is-impotent/",
+          "title": "Muslim Divorce if Husband Is Impotent"
+        }
+      ]
+    },
+    {
+      "id": "q019",
+      "type": "plain",
+      "category": "Family Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 329.41,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-a-special-marriage-or-inter-religious-marriage/",
+          "title": "What is a ‘Special Marriage’ or Inter-Religious Marriage?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/who-can-you-complain-to-regarding-a-grievance-under-the-law/",
+          "title": "Who can you complain to regarding a grievance under the law?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/conditions-to-be-fulfilled-for-a-valid-inter-religious-marriage/",
+          "title": "Conditions To Be Fulfilled For A Valid Inter-Religious Marriage"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-are-irregular-christian-marriages/",
+          "title": "What are Irregular Christian Marriages?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-the-procedure-for-a-marriage-by-a-person-licensed-to-grant-marriage-certificates/",
+          "title": "What is the procedure for a marriage by a person licensed to grant marriage certificates?"
+        }
+      ]
+    },
+    {
+      "id": "q020",
+      "type": "plain",
+      "category": "Family Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 357.0,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/agreement-to-pay-dowry/",
+          "title": "Agreement to Pay Dowry"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/mehr-and-dower-not-dowry/",
+          "title": "Mehr and Dower Not Dowry"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-about-a-demand-for-dowry/",
+          "title": "Complaining about a Demand for Dowry"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/demanding-dowry/",
+          "title": "Demanding Dowry"
+        }
+      ]
+    },
+    {
+      "id": "q021",
+      "type": "plain",
+      "category": "Family Law",
+      "known_issue": null,
+      "rank": 4,
+      "latency_ms": 358.41,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-get-immediate-protection-for-domestic-violence/",
+          "title": "How can you get Immediate Protection for Domestic Violence?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        },
+        {
+          "act_name": "Protection of Women from Domestic Violence Act, 2005",
+          "section_number": "19",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Protection of Women from Domestic Violence Act, 2005, Section 19"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        }
+      ]
+    },
+    {
+      "id": "q022",
+      "type": "plain",
+      "category": "Family Law",
+      "known_issue": "DB holds the pre-2005 text of Hindu Succession Act s.6.",
+      "rank": 1,
+      "latency_ms": 331.66,
+      "top5": [
+        {
+          "act_name": "Hindu Succession Act, 1956",
+          "section_number": "6",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Hindu Succession Act, 1956, Section 6"
+        },
+        {
+          "act_name": "Hindu Succession Act, 1956",
+          "section_number": "10",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Hindu Succession Act, 1956, Section 10"
+        },
+        {
+          "act_name": "Prohibition of Benami Property Transactions Act, 1988",
+          "section_number": "2",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Prohibition of Benami Property Transactions Act, 1988, Section 2"
+        },
+        {
+          "act_name": "Hindu Succession Act, 1956",
+          "section_number": "6",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Hindu Succession Act, 1956, Section 6"
+        },
+        {
+          "act_name": "Transfer of Property Act, 1882",
+          "section_number": "44",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Transfer of Property Act, 1882, Section 44"
+        }
+      ]
+    },
+    {
+      "id": "q023",
+      "type": "plain",
+      "category": "Family Law",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 363.8,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/are-live-in-relationships-covered-under-domestic-violence-law/",
+          "title": "Are Live In Relationships covered under Domestic Violence law?"
+        },
+        {
+          "act_name": "Maintenance and Welfare of Parents and Senior Citizens Act, 2007",
+          "section_number": "23",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Maintenance and Welfare of Parents and Senior Citizens Act, 2007, Section 23"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/claiming-maintenance-from-tribunal-for-senior-citizens/",
+          "title": "Claiming Maintenance from Tribunal for Senior Citizens"
+        }
+      ]
+    },
+    {
+      "id": "q024",
+      "type": "plain",
+      "category": "Property & Real Estate",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 280.07,
+      "top5": [
+        {
+          "act_name": "Delhi Rent Control Act, 1958",
+          "section_number": "45",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Rent Control Act, 1958, Section 45"
+        },
+        {
+          "act_name": "Delhi Rent Control Act, 1958",
+          "section_number": "45",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Rent Control Act, 1958, Section 45"
+        },
+        {
+          "act_name": "Delhi and Ajmer Rent Control Act, 1952",
+          "section_number": "41",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi and Ajmer Rent Control Act, 1952, Section 41"
+        },
+        {
+          "act_name": "Delhi Rent Control Act, 1958",
+          "section_number": "45",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Rent Control Act, 1958, Section 45"
+        },
+        {
+          "act_name": "Salary, Allowances and Pension of Members of Parliament Act, 1954",
+          "section_number": "8",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Salary, Allowances and Pension of Members of Parliament Act, 1954, Section 8"
+        }
+      ]
+    },
+    {
+      "id": "q025",
+      "type": "plain",
+      "category": "Property & Real Estate",
+      "known_issue": null,
+      "rank": 5,
+      "latency_ms": 301.09,
+      "top5": [
+        {
+          "act_name": "Registration Act, 1908",
+          "section_number": "29",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Registration Act, 1908, Section 29"
+        },
+        {
+          "act_name": "Registration Act, 1908",
+          "section_number": "51",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Registration Act, 1908, Section 51"
+        },
+        {
+          "act_name": "Registration Act, 1908",
+          "section_number": "28",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Registration Act, 1908, Section 28"
+        },
+        {
+          "act_name": "Companies Act, 2013",
+          "section_number": "128",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Companies Act, 2013, Section 128"
+        },
+        {
+          "act_name": "Registration Act, 1908",
+          "section_number": "17",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Registration Act, 1908, Section 17"
+        }
+      ]
+    },
+    {
+      "id": "q026",
+      "type": "plain",
+      "category": "Property & Real Estate",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 353.54,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        },
+        {
+          "act_name": "Real Estate (Regulation and Development) Act, 2016",
+          "section_number": "18",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Real Estate (Regulation and Development) Act, 2016, Section 18"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-to-the-police-for-rent-troubles/",
+          "title": "Complaining to the Police for Rent troubles"
+        },
+        {
+          "act_name": "Real Estate (Regulation and Development) Act, 2016",
+          "section_number": "18",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Real Estate (Regulation and Development) Act, 2016, Section 18"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/procedure-to-file-a-consumer-complaint/",
+          "title": "Procedure to file a consumer complaint"
+        }
+      ]
+    },
+    {
+      "id": "q027",
+      "type": "plain",
+      "category": "Labour & Employment",
+      "known_issue": null,
+      "rank": 7,
+      "latency_ms": 258.88,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-to-claim-maternity-benefits/",
+          "title": "How to claim Maternity Benefits?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/children-legally-free-for-adoption/",
+          "title": "Children Legally Free for Adoption"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/workplaces-with-maternity-benefits/",
+          "title": "Workplaces with Maternity Benefits"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-against-a-pharmacist/",
+          "title": "Complaining against a Pharmacist"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/responsibility-of-employers/",
+          "title": "Responsibility of Employers"
+        }
+      ]
+    },
+    {
+      "id": "q028",
+      "type": "plain",
+      "category": "Labour & Employment",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 346.7,
+      "top5": [
+        {
+          "act_name": "Maternity Benefit Act, 1961",
+          "section_number": "11",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Maternity Benefit Act, 1961, Section 11"
+        },
+        {
+          "act_name": "Plantations Labour Act, 1951",
+          "section_number": "23",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Plantations Labour Act, 1951, Section 23"
+        },
+        {
+          "act_name": "Code on Social Security Act, 2020",
+          "section_number": "66",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Social Security Act, 2020, Section 66"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-against-a-pharmacist/",
+          "title": "Complaining against a Pharmacist"
+        },
+        {
+          "act_name": "Factories Act, 1948",
+          "section_number": "48",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Factories Act, 1948, Section 48"
+        }
+      ]
+    },
+    {
+      "id": "q029",
+      "type": "plain",
+      "category": "Labour & Employment",
+      "known_issue": null,
+      "rank": 5,
+      "latency_ms": 326.49,
+      "top5": [
+        {
+          "act_name": "Working Journalists and Other Newspaper Employees Conditions of Service) and Miscellaneous Provisions Act, 1955",
+          "section_number": "5",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Working Journalists and Other Newspaper Employees Conditions of Service) and Miscellaneous Provisions Act, 1955, Section 5"
+        },
+        {
+          "act_name": "Workmens Compensation Act, 1923",
+          "section_number": "4",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Workmens Compensation Act, 1923, Section 4"
+        },
+        {
+          "act_name": "High Court Judges (Salaries and Conditions of Service) Act, 1954",
+          "section_number": "26",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "High Court Judges (Salaries and Conditions of Service) Act, 1954, Section 26"
+        },
+        {
+          "act_name": "Code on Social Security Act, 2020",
+          "section_number": "76",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Social Security Act, 2020, Section 76"
+        },
+        {
+          "act_name": "Payment of Gratuity Act, 1972",
+          "section_number": "4",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Payment of Gratuity Act, 1972, Section 4"
+        }
+      ]
+    },
+    {
+      "id": "q030",
+      "type": "plain",
+      "category": "Labour & Employment",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 326.87,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-should-employers-pay-wages/",
+          "title": "How should employers pay wages?"
+        },
+        {
+          "act_name": "Code on Wages, 2019",
+          "section_number": "17",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Wages, 2019, Section 17"
+        },
+        {
+          "act_name": "Workmens Compensation Act, 1923",
+          "section_number": "5",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Workmens Compensation Act, 1923, Section 5"
+        },
+        {
+          "act_name": "Payment of Wages Act, 1936",
+          "section_number": "4",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Payment of Wages Act, 1936, Section 4"
+        },
+        {
+          "act_name": "Code on Social Security Act, 2020",
+          "section_number": "78",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Social Security Act, 2020, Section 78"
+        }
+      ]
+    },
+    {
+      "id": "q031",
+      "type": "plain",
+      "category": "Labour & Employment",
+      "known_issue": null,
+      "rank": 3,
+      "latency_ms": 402.86,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/forming-an-internal-complaints-committee/",
+          "title": "Forming an Internal Complaints Committee"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/accused-of-sexual-harassment-at-the-workplace/",
+          "title": "Accused of Sexual Harassment at the Workplace"
+        },
+        {
+          "act_name": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "section_number": "6",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 6"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-rape/",
+          "title": "Reporting Rape"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/abusive-language-and-photoshopping/",
+          "title": "Abusive Language and Photoshopping"
+        }
+      ]
+    },
+    {
+      "id": "q032",
+      "type": "plain",
+      "category": "Cyber & IT Law",
+      "known_issue": "DB holds the pre-2008 text of IT Act s.66.",
+      "rank": 2,
+      "latency_ms": 273.18,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/facing-violence-during-theft/",
+          "title": "Facing Violence during Theft"
+        },
+        {
+          "act_name": "Information Technology Act, 2000",
+          "section_number": "66",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Information Technology Act, 2000, Section 66"
+        },
+        {
+          "act_name": "Information Technology Act, 2000",
+          "section_number": "43",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Information Technology Act, 2000, Section 43"
+        },
+        {
+          "act_name": "Information Technology Act, 2000",
+          "section_number": "43",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Information Technology Act, 2000, Section 43"
+        },
+        {
+          "act_name": "Information Technology Act, 2000",
+          "section_number": "65",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Information Technology Act, 2000, Section 65"
+        }
+      ]
+    },
+    {
+      "id": "q033",
+      "type": "plain",
+      "category": "Cyber & IT Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 276.02,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-complaint-against-sexual-harassment/",
+          "title": "Filing a Complaint against Sexual Harassment"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-complaint-against-sexual-harassment/",
+          "title": "Filing a Complaint against Sexual Harassment"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-do-you-complain-against-sexual-crimes/",
+          "title": "How do you Complain against Sexual Crimes?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-do-you-complain-against-sexual-crimes/",
+          "title": "How do you Complain against Sexual Crimes?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-complaint-against-sexual-harassment/",
+          "title": "Filing a Complaint against Sexual Harassment"
+        }
+      ]
+    },
+    {
+      "id": "q034",
+      "type": "plain",
+      "category": "Cyber & IT Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 337.9,
+      "top5": [
+        {
+          "act_name": "Information Technology Act, 2000",
+          "section_number": "72",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Information Technology Act, 2000, Section 72"
+        },
+        {
+          "act_name": "Control of National Highways (Land and Traffic) Act, 2002",
+          "section_number": "29",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Control of National Highways (Land and Traffic) Act, 2002, Section 29"
+        },
+        {
+          "act_name": "Central Goods and Services Tax Act, 2017",
+          "section_number": "133",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Central Goods and Services Tax Act, 2017, Section 133"
+        },
+        {
+          "act_name": "Rights of Persons with Disabilities Act, 2016",
+          "section_number": "12",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Rights of Persons with Disabilities Act, 2016, Section 12"
+        },
+        {
+          "act_name": "Pre-Natal Diagnostic Techniques (Regulation and Prevention of Misuse) Act, 1994",
+          "section_number": "28",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Pre-Natal Diagnostic Techniques (Regulation and Prevention of Misuse) Act, 1994, Section 28"
+        }
+      ]
+    },
+    {
+      "id": "q035",
+      "type": "plain",
+      "category": "Right to Information",
+      "known_issue": "RTI Act section numbers in metadata do not follow the act.",
+      "rank": null,
+      "latency_ms": 269.64,
+      "top5": [
+        {
+          "act_name": "Tripura Land Revenue and Land Reforms Act, 1960",
+          "section_number": "50",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Tripura Land Revenue and Land Reforms Act, 1960, Section 50"
+        },
+        {
+          "act_name": "Emigration Act, 1983",
+          "section_number": "17",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Emigration Act, 1983, Section 17"
+        },
+        {
+          "act_name": "Coffee Act, 1942",
+          "section_number": "39",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Coffee Act, 1942, Section 39"
+        },
+        {
+          "act_name": "Right to Information Act, 2005",
+          "section_number": "4",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Right to Information Act, 2005, Section 4"
+        },
+        {
+          "act_name": "Maternity Benefit Act, 1961",
+          "section_number": "15",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Maternity Benefit Act, 1961, Section 15"
+        }
+      ]
+    },
+    {
+      "id": "q036",
+      "type": "plain",
+      "category": "Right to Information",
+      "known_issue": "RTI Act section numbers in metadata do not follow the act.",
+      "rank": 1,
+      "latency_ms": 248.81,
+      "top5": [
+        {
+          "act_name": "Right to Information Act, 2005",
+          "section_number": "7",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Right to Information Act, 2005, Section 7"
+        },
+        {
+          "act_name": "Companies Act, 1956",
+          "section_number": "86",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Companies Act, 1956, Section 86"
+        },
+        {
+          "act_name": "Right to Information Act, 2005",
+          "section_number": "7",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Right to Information Act, 2005, Section 7"
+        },
+        {
+          "act_name": "Companies (Amendment) Act, 2000",
+          "section_number": "38",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Companies (Amendment) Act, 2000, Section 38"
+        },
+        {
+          "act_name": "Right to Information Act, 2005",
+          "section_number": "7",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Right to Information Act, 2005, Section 7"
+        }
+      ]
+    },
+    {
+      "id": "q037",
+      "type": "plain",
+      "category": "Tax Law",
+      "known_issue": "DB holds the Income-Tax Act, 1961, replaced by the Income-tax Act, 2025.",
+      "rank": 1,
+      "latency_ms": 374.28,
+      "top5": [
+        {
+          "act_name": "Income-Tax Act, 1961",
+          "section_number": "6",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Income-Tax Act, 1961, Section 6"
+        },
+        {
+          "act_name": "Income-Tax Act, 1961",
+          "section_number": "6",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Income-Tax Act, 1961, Section 6"
+        },
+        {
+          "act_name": "Juvenile Justice (Care and Protection of Children) Act, 2015",
+          "section_number": "59",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Juvenile Justice (Care and Protection of Children) Act, 2015, Section 59"
+        },
+        {
+          "act_name": "Income-Tax Act, 1961",
+          "section_number": "6",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Income-Tax Act, 1961, Section 6"
+        },
+        {
+          "act_name": "Black Money (Undisclosed Foreign Income and Assets) and Imposition of Tax Act, 2015",
+          "section_number": "50",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Black Money (Undisclosed Foreign Income and Assets) and Imposition of Tax Act, 2015, Section 50"
+        }
+      ]
+    },
+    {
+      "id": "q038",
+      "type": "plain",
+      "category": "Contract & Commercial",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 350.96,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/banks-falsely-bouncing-cheques/",
+          "title": "Banks falsely bouncing cheques"
+        },
+        {
+          "act_name": "Negotiable Instruments Act, 1881",
+          "section_number": "138",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Negotiable Instruments Act, 1881, Section 138"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/cheque-truncation-system/",
+          "title": "Cheque Truncation System (“CTS”)"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/order-cheque/",
+          "title": "Order Cheque"
+        }
+      ]
+    },
+    {
+      "id": "q039",
+      "type": "plain",
+      "category": "Contract & Commercial",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 316.59,
+      "top5": [
+        {
+          "act_name": "Companies Act, 2013",
+          "section_number": "135",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Companies Act, 2013, Section 135"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        },
+        {
+          "act_name": "Companies Act, 2013",
+          "section_number": "181",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Companies Act, 2013, Section 181"
+        },
+        {
+          "act_name": "Delhi Police Act, 1978",
+          "section_number": "40",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Police Act, 1978, Section 40"
+        },
+        {
+          "act_name": "Companies Act, 2013",
+          "section_number": "135",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Companies Act, 2013, Section 135"
+        }
+      ]
+    },
+    {
+      "id": "q040",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 4,
+      "latency_ms": 345.26,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-is-invasion-of-privacy-a-sexual-crime/",
+          "title": "How is Invasion of Privacy a Sexual Crime?"
+        },
+        {
+          "act_name": "Manipur University Act, 2005",
+          "section_number": "2",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Manipur University Act, 2005, Section 2"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/child-friendly-court-process/",
+          "title": "Child-Friendly Court Process"
+        },
+        {
+          "act_name": "Protection of Children from Sexual Offences Act, 2012",
+          "section_number": "21",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Protection of Children from Sexual Offences Act, 2012, Section 21"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/education-for-children-belonging-to-disadvantaged-groups/",
+          "title": "Education for Children Belonging to Disadvantaged Groups"
+        }
+      ]
+    },
+    {
+      "id": "q041",
+      "type": "plain",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 6,
+      "latency_ms": 409.45,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/powers-of-police-and-authorities-search-seize-and-arrest/",
+          "title": "Powers of police and authorities – Search, Seize and Arrest"
+        },
+        {
+          "act_name": "Children Act, 1960",
+          "section_number": "18",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Children Act, 1960, Section 18"
+        },
+        {
+          "act_name": "Delhi Rent Act, 1995",
+          "section_number": "26",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Rent Act, 1995, Section 26"
+        },
+        {
+          "act_name": "Children Act, 1960",
+          "section_number": "18",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Children Act, 1960, Section 18"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/diazepam/",
+          "title": "Diazepam"
+        }
+      ]
+    },
+    {
+      "id": "q042",
+      "type": "plain",
+      "category": "Property & Real Estate",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 293.66,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/registration-or-notarization-of-agreement/",
+          "title": "Registration or Notarization of Agreement"
+        },
+        {
+          "act_name": "Delhi Rent Control Act, 1958",
+          "section_number": "26",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Rent Control Act, 1958, Section 26"
+        },
+        {
+          "act_name": "Delhi Rent Act, 1995",
+          "section_number": "15",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Rent Act, 1995, Section 15"
+        },
+        {
+          "act_name": "Delhi Rent Act, 1995",
+          "section_number": "15",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Rent Act, 1995, Section 15"
+        },
+        {
+          "act_name": "Maharashtra Rent Control Act, 1999",
+          "section_number": "31",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Maharashtra Rent Control Act, 1999, Section 31"
+        }
+      ]
+    },
+    {
+      "id": "q043",
+      "type": "section_ref",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 193.69,
+      "top5": [
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "303",
+          "source": "Section 303, BNS 2023",
+          "title": "Theft"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "307",
+          "source": "Section 307, BNS 2023",
+          "title": "Theft after preparation made for causing death, hurt or restraint in order to committing"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "39",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 39"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "301",
+          "source": "Section 301, BNS 2023",
+          "title": "Trespassing on burial places, etc"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "39",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 39"
+        }
+      ]
+    },
+    {
+      "id": "q044",
+      "type": "section_ref",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 204.96,
+      "top5": [
+        {
+          "act_name": "Bharatiya Sakshya Adhiniyam, 2023",
+          "section_number": "115",
+          "source": "Section 115, BSA 2023",
+          "title": "Presumption as to certain offences"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "101",
+          "source": "Section 101, BNS 2023",
+          "title": "Murder"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "283",
+          "source": "Section 283, BNSS 2023",
+          "title": "Power to try summarily"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "1",
+          "source": "Section 1, BNS 2023",
+          "title": "Short title, commencement and application"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "243",
+          "source": "Section 243, BNSS 2023",
+          "title": "Trial for more than one offence"
+        }
+      ]
+    },
+    {
+      "id": "q045",
+      "type": "section_ref",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 185.03,
+      "top5": [
+        {
+          "act_name": "Negotiable Instruments Act, 1881",
+          "section_number": "75",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Negotiable Instruments Act, 1881, Section 75"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Arbitration Act, 1940",
+          "section_number": "75",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Arbitration Act, 1940, Section 75"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/who-lgbtq-can-file-a-complaint/",
+          "title": "Who (LGBTQ+) can File a Complaint"
+        },
+        {
+          "act_name": "Companies Act, 1956",
+          "section_number": "74",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Companies Act, 1956, Section 74"
+        }
+      ]
+    },
+    {
+      "id": "q046",
+      "type": "section_ref",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 194.06,
+      "top5": [
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "35",
+          "source": "Section 35, BNSS 2023",
+          "title": "When police may arrest without warrant"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "335",
+          "source": "Section 335, BNS 2023",
+          "title": "Making a false document"
+        },
+        {
+          "act_name": "Rights of Persons with Disabilities Act, 2016",
+          "section_number": "35",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Rights of Persons with Disabilities Act, 2016, Section 35"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "335",
+          "source": "Section 335, BNSS 2023",
+          "title": "Record of evidence in absence of accused"
+        },
+        {
+          "act_name": "Gram Nyayalayas Act, 2008",
+          "section_number": "35",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Gram Nyayalayas Act, 2008, Section 35"
+        }
+      ]
+    },
+    {
+      "id": "q047",
+      "type": "section_ref",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 215.11,
+      "top5": [
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "480",
+          "source": "Section 480, BNSS 2023",
+          "title": "When bail may be taken in case of non-bailable offence"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "478",
+          "source": "Section 478, BNSS 2023",
+          "title": "In what cases bail to be taken"
+        },
+        {
+          "act_name": "Registration Act, 1908",
+          "section_number": "44",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Registration Act, 1908, Section 44"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "180",
+          "source": "Section 180, BNSS 2023",
+          "title": "Examination of witnesses by police"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "487",
+          "source": "Section 487, BNSS 2023",
+          "title": "Discharge from custody"
+        }
+      ]
+    },
+    {
+      "id": "q048",
+      "type": "section_ref",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 220.23,
+      "top5": [
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "328",
+          "source": "Section 328, BNSS 2023",
+          "title": "Evidence of officers of Mint"
+        },
+        {
+          "act_name": "Bharatiya Sakshya Adhiniyam, 2023",
+          "section_number": "39",
+          "source": "Section 39, BSA 2023",
+          "title": "Opinions of experts"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "181",
+          "source": "Section 181, BNSS 2023",
+          "title": "Statements to police and use thereof"
+        },
+        {
+          "act_name": "Bharatiya Sakshya Adhiniyam, 2023",
+          "section_number": "39",
+          "source": "Section 39, BSA 2023",
+          "title": "Opinions of experts"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "94",
+          "source": "Section 94, BNSS 2023",
+          "title": "Summons to produce document or other thing"
+        }
+      ]
+    },
+    {
+      "id": "q049",
+      "type": "section_ref",
+      "category": "Cyber & IT Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 196.09,
+      "top5": [
+        {
+          "act_name": "Information Technology Act, 2000",
+          "section_number": "43",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Information Technology Act, 2000, Section 43"
+        },
+        {
+          "act_name": "Benami Transactions Act (Prohibition), 1988",
+          "section_number": "7",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Benami Transactions Act (Prohibition), 1988, Section 7"
+        },
+        {
+          "act_name": "Mizoram University Act, 2000",
+          "section_number": "43",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Mizoram University Act, 2000, Section 43"
+        },
+        {
+          "act_name": "Prohibition of Benami Property Transactions Act, 1988",
+          "section_number": "56",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Prohibition of Benami Property Transactions Act, 1988, Section 56"
+        },
+        {
+          "act_name": "Defence of India Act, 1962",
+          "section_number": "43",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Defence of India Act, 1962, Section 43"
+        }
+      ]
+    },
+    {
+      "id": "q050",
+      "type": "section_ref",
+      "category": "Consumer Protection",
+      "known_issue": null,
+      "rank": 3,
+      "latency_ms": 241.09,
+      "top5": [
+        {
+          "act_name": "Consumer Protection Act, 2019",
+          "section_number": "1",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 2019, Section 1"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/procedure-to-file-a-consumer-complaint/",
+          "title": "Procedure to file a consumer complaint"
+        },
+        {
+          "act_name": "Consumer Protection Act, 2019",
+          "section_number": "41",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 2019, Section 41"
+        },
+        {
+          "act_name": "Consumer Protection Act, 2019",
+          "section_number": "39",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 2019, Section 39"
+        },
+        {
+          "act_name": "Consumer Protection Act, 2019",
+          "section_number": "9",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Consumer Protection Act, 2019, Section 9"
+        }
+      ]
+    },
+    {
+      "id": "q051",
+      "type": "section_ref",
+      "category": "Motor Vehicle & Transport",
+      "known_issue": "Chunk holds only the section heading, no text.",
+      "rank": 1,
+      "latency_ms": 204.91,
+      "top5": [
+        {
+          "act_name": "Motor Vehicles Act, 1988",
+          "section_number": "183",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Motor Vehicles Act, 1988, Section 183"
+        },
+        {
+          "act_name": "Motor Vehicles Act, 1988",
+          "section_number": "209",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Motor Vehicles Act, 1988, Section 209"
+        },
+        {
+          "act_name": "Motor Vehicles Act, 1988",
+          "section_number": "20",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Motor Vehicles Act, 1988, Section 20"
+        },
+        {
+          "act_name": "Delhi Motor Vehicles Taxation Act, 1962",
+          "section_number": "38",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Delhi Motor Vehicles Taxation Act, 1962, Section 38"
+        },
+        {
+          "act_name": "Motor Vehicles Act, 1988",
+          "section_number": "193",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Motor Vehicles Act, 1988, Section 193"
+        }
+      ]
+    },
+    {
+      "id": "q052",
+      "type": "section_ref",
+      "category": "Family Law",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 212.84,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/prohibited-relationships-under-hindu-marriage-law-2/",
+          "title": "Prohibited Relationships under Hindu Marriage Law"
+        },
+        {
+          "act_name": "Hindu Marriage Act, 1955",
+          "section_number": "25",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Hindu Marriage Act, 1955, Section 25"
+        },
+        {
+          "act_name": "Hindu Marriage Act, 1955",
+          "section_number": "30",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Hindu Marriage Act, 1955, Section 30"
+        },
+        {
+          "act_name": "Hindu Marriage Act, 1955",
+          "section_number": "26",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Hindu Marriage Act, 1955, Section 26"
+        },
+        {
+          "act_name": "Hindu Marriage Act, 1955",
+          "section_number": "24",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Hindu Marriage Act, 1955, Section 24"
+        }
+      ]
+    },
+    {
+      "id": "q053",
+      "type": "section_ref",
+      "category": "Contract & Commercial",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 217.89,
+      "top5": [
+        {
+          "act_name": "Negotiable Instruments Act, 1881",
+          "section_number": "142",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Negotiable Instruments Act, 1881, Section 142"
+        },
+        {
+          "act_name": "Negotiable Instruments Act, 1881",
+          "section_number": "122",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Negotiable Instruments Act, 1881, Section 122"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "142",
+          "source": "Section 142, BNSS 2023",
+          "title": "Power to release persons imprisoned for failing to give security"
+        },
+        {
+          "act_name": "Negotiable Instruments Act, 1881",
+          "section_number": "19",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Negotiable Instruments Act, 1881, Section 19"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "142",
+          "source": "Section 142, BNSS 2023",
+          "title": "Power to release persons imprisoned for failing to give security"
+        }
+      ]
+    },
+    {
+      "id": "q054",
+      "type": "section_ref",
+      "category": "Labour & Employment",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 200.76,
+      "top5": [
+        {
+          "act_name": "Code on Wages, 2019",
+          "section_number": "18",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Wages, 2019, Section 18"
+        },
+        {
+          "act_name": "Code on Wages, 2019",
+          "section_number": "24",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Wages, 2019, Section 24"
+        },
+        {
+          "act_name": "Code on Wages, 2019",
+          "section_number": "23",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Wages, 2019, Section 23"
+        },
+        {
+          "act_name": "Code on Wages, 2019",
+          "section_number": "57",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Wages, 2019, Section 57"
+        },
+        {
+          "act_name": "Code on Wages, 2019",
+          "section_number": "17",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Wages, 2019, Section 17"
+        }
+      ]
+    },
+    {
+      "id": "q055",
+      "type": "section_ref",
+      "category": "Family Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 240.83,
+      "top5": [
+        {
+          "act_name": "Special Marriage Act, 1954",
+          "section_number": "7",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Special Marriage Act, 1954, Section 7"
+        },
+        {
+          "act_name": "Converts Marriage Dissolution Act, 1866",
+          "section_number": "7",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Converts Marriage Dissolution Act, 1866, Section 7"
+        },
+        {
+          "act_name": "Personal Laws (Amendment) Act, 2019",
+          "section_number": "4",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Personal Laws (Amendment) Act, 2019, Section 4"
+        },
+        {
+          "act_name": "Foreign Marriage Act, 1969",
+          "section_number": "18",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Foreign Marriage Act, 1969, Section 18"
+        },
+        {
+          "act_name": "Special Marriage Act, 1954",
+          "section_number": "47",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Special Marriage Act, 1954, Section 47"
+        }
+      ]
+    },
+    {
+      "id": "q056",
+      "type": "section_ref",
+      "category": "Family Law",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 220.44,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-a-domestic-incident-report/",
+          "title": "What is a Domestic Incident Report?"
+        },
+        {
+          "act_name": "Protection of Women from Domestic Violence Act, 2005",
+          "section_number": "18",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Protection of Women from Domestic Violence Act, 2005, Section 18"
+        },
+        {
+          "act_name": "Protection of Women from Domestic Violence Act, 2005",
+          "section_number": "12",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Protection of Women from Domestic Violence Act, 2005, Section 12"
+        },
+        {
+          "act_name": "Protection of Women from Domestic Violence Act, 2005",
+          "section_number": "23",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Protection of Women from Domestic Violence Act, 2005, Section 23"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-a-domestic-incident-report/",
+          "title": "What is a Domestic Incident Report?"
+        }
+      ]
+    },
+    {
+      "id": "q057",
+      "type": "section_ref",
+      "category": "Property & Real Estate",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 187.04,
+      "top5": [
+        {
+          "act_name": "Registration Act, 1908",
+          "section_number": "49",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Registration Act, 1908, Section 49"
+        },
+        {
+          "act_name": "Clinical Establishments (Registration and Regulation) Act, 2010",
+          "section_number": "49",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Clinical Establishments (Registration and Regulation) Act, 2010, Section 49"
+        },
+        {
+          "act_name": "Manipur Land Revenue and Land Reforms Act, 1960",
+          "section_number": "49",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Manipur Land Revenue and Land Reforms Act, 1960, Section 49"
+        },
+        {
+          "act_name": "Companies (Amendment) Act, 2000",
+          "section_number": "14",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Companies (Amendment) Act, 2000, Section 14"
+        },
+        {
+          "act_name": "Tripura Land Revenue and Land Reforms Act, 1960",
+          "section_number": "49",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Tripura Land Revenue and Land Reforms Act, 1960, Section 49"
+        }
+      ]
+    },
+    {
+      "id": "q058",
+      "type": "explainer",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 4,
+      "latency_ms": 329.55,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/who-can-file-an-fir/",
+          "title": "Who can file an FIR"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-to-file-an-fir/",
+          "title": "How to file an FIR"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/where-can-an-fir-be-filed/",
+          "title": "Where can an FIR be filed"
+        }
+      ]
+    },
+    {
+      "id": "q059",
+      "type": "explainer",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 354.56,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/anti-ragging-authorities/",
+          "title": "Anti-Ragging Authorities"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-against-ragging/",
+          "title": "Complaining Against Ragging"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/physical-threats/",
+          "title": "Physical Threats"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        }
+      ]
+    },
+    {
+      "id": "q060",
+      "type": "explainer",
+      "category": "Constitutional Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 348.13,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/duplicate-lost-ration-card/",
+          "title": "Duplicate/Lost Ration Card"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/duplicate-lost-ration-card/",
+          "title": "Duplicate/Lost Ration Card"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/duplicate-lost-ration-card/",
+          "title": "Duplicate/Lost Ration Card"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/duplicate-lost-ration-card/",
+          "title": "Duplicate/Lost Ration Card"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/duplicate-lost-ration-card/",
+          "title": "Duplicate/Lost Ration Card"
+        }
+      ]
+    },
+    {
+      "id": "q061",
+      "type": "explainer",
+      "category": "Property & Real Estate",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 285.48,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/procedure-to-file-a-consumer-complaint/",
+          "title": "Procedure to file a consumer complaint"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/procedure-to-file-a-consumer-complaint/",
+          "title": "Procedure to file a consumer complaint"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/procedure-to-file-a-consumer-complaint/",
+          "title": "Procedure to file a consumer complaint"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/procedure-to-file-a-consumer-complaint/",
+          "title": "Procedure to file a consumer complaint"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/types-of-consumer-complaints/",
+          "title": "Types of Consumer Complaints"
+        }
+      ]
+    },
+    {
+      "id": "q062",
+      "type": "explainer",
+      "category": "Environmental Law",
+      "known_issue": null,
+      "rank": 8,
+      "latency_ms": 312.9,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/who-can-you-complain-to-about-a-grievance-under-air-pollution-law/",
+          "title": "Who can you complain to about a grievance under air pollution law?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        }
+      ]
+    },
+    {
+      "id": "q063",
+      "type": "explainer",
+      "category": "Labour & Employment",
+      "known_issue": null,
+      "rank": 3,
+      "latency_ms": 304.68,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/fired-during-maternity-leave/",
+          "title": "Fired during Maternity Leave"
+        },
+        {
+          "act_name": "Code on Social Security Act, 2020",
+          "section_number": "62",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code on Social Security Act, 2020, Section 62"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-to-claim-maternity-benefits/",
+          "title": "How to claim Maternity Benefits?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        },
+        {
+          "act_name": "Payment of Bonus Act, 1965",
+          "section_number": "25",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Payment of Bonus Act, 1965, Section 25"
+        }
+      ]
+    },
+    {
+      "id": "q064",
+      "type": "explainer",
+      "category": "Cyber & IT Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 318.32,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/blocking-abusers-on-social-media/",
+          "title": "Blocking Abusers on Social Media"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/physical-threats/",
+          "title": "Physical Threats"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/abusive-language-and-photoshopping/",
+          "title": "Abusive Language and Photoshopping"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-stalking/",
+          "title": "What is Stalking?"
+        }
+      ]
+    },
+    {
+      "id": "q065",
+      "type": "explainer",
+      "category": "Constitutional Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 326.86,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-to-file-a-writ-petition-online/",
+          "title": "How to file a writ petition online?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-are-constitutional-remedies/",
+          "title": "What are constitutional remedies?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-to-file-a-writ-petition-online/",
+          "title": "How to file a writ petition online?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/payment-for-filing-writ-petitions/",
+          "title": "Payment for filing writ petitions"
+        },
+        {
+          "act_name": "Bombay Revenue Jurisdiction Act, 1876",
+          "section_number": "12",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Bombay Revenue Jurisdiction Act, 1876, Section 12"
+        }
+      ]
+    },
+    {
+      "id": "q066",
+      "type": "explainer",
+      "category": "Family Law",
+      "known_issue": null,
+      "rank": 4,
+      "latency_ms": 302.3,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/remarriage-under-muslim-marriage-law/",
+          "title": "Remarriage under Muslim Marriage Law"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/remarriage-under-muslim-marriage-law/",
+          "title": "Remarriage under Muslim Marriage Law"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/remarriage-under-muslim-marriage-law/",
+          "title": "Remarriage under Muslim Marriage Law"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/iddat-after-divorce-in-muslim-marriages/",
+          "title": "Iddat After Divorce in Muslim Marriages"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/muslim-divorce-due-to-non-payment-of-maintenance-by-husband/",
+          "title": "Muslim Divorce due to Non-Payment of Maintenance by Husband"
+        }
+      ]
+    },
+    {
+      "id": "q067",
+      "type": "explainer",
+      "category": "General",
+      "known_issue": null,
+      "rank": 3,
+      "latency_ms": 356.88,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/cancelling-a-child-marriage/",
+          "title": "Cancelling a Child Marriage"
+        },
+        {
+          "act_name": "Indian Contract Act, 1872",
+          "section_number": "65",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Indian Contract Act, 1872, Section 65"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-child-marriages/",
+          "title": "Reporting Child Marriages"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/cancelling-a-child-marriage/",
+          "title": "Cancelling a Child Marriage"
+        }
+      ]
+    },
+    {
+      "id": "q068",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 188.1,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/facing-violence-during-theft/",
+          "title": "Facing Violence during Theft"
+        },
+        {
+          "act_name": "Railway Property (Unlawful Possession) Act, 1966",
+          "section_number": "3",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Railway Property (Unlawful Possession) Act, 1966, Section 3"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Payment of Gratuity Act, 1972",
+          "section_number": "9",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Payment of Gratuity Act, 1972, Section 9"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        }
+      ]
+    },
+    {
+      "id": "q069",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 5,
+      "latency_ms": 219.72,
+      "top5": [
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "251",
+          "source": "Section 251, BNS 2023",
+          "title": "Offering gift or restoration of property in consideration of screening offender"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "240",
+          "source": "Section 240, BNS 2023",
+          "title": "Giving false information respecting an offence committed"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        },
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "318",
+          "source": "Section 318, BNS 2023",
+          "title": "Cheating"
+        }
+      ]
+    },
+    {
+      "id": "q070",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": "Explainers in the DB map IPC 498A to BNS 84, which is a different offence.",
+      "rank": null,
+      "latency_ms": 276.69,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-about-a-demand-for-dowry/",
+          "title": "Complaining about a Demand for Dowry"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-the-time-limit-to-complain-against-domestic-violence/",
+          "title": "What is the Time Limit to Complain against Domestic Violence?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-about-a-demand-for-dowry/",
+          "title": "Complaining about a Demand for Dowry"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-the-time-limit-to-complain-against-domestic-violence/",
+          "title": "What is the Time Limit to Complain against Domestic Violence?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        }
+      ]
+    },
+    {
+      "id": "q071",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 6,
+      "latency_ms": 276.66,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/complaining-reporting-problems-by-lgbtq-persons/",
+          "title": "Complaining/Reporting Problems by LGBTQ+ Persons"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-do-you-complain-against-sexual-crimes/",
+          "title": "How do you Complain against Sexual Crimes?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/filing-a-noise-complaint/",
+          "title": "Filing A Noise Complaint"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-do-you-complain-against-sexual-crimes/",
+          "title": "How do you Complain against Sexual Crimes?"
+        }
+      ]
+    },
+    {
+      "id": "q072",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 196.75,
+      "top5": [
+        {
+          "act_name": "Bharatiya Nyaya Sanhita, 2023",
+          "section_number": "118",
+          "source": "Section 118, BNS 2023",
+          "title": "Voluntarily causing hurt or grievous hurt by dangerous weapons or means"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        },
+        {
+          "act_name": "Payment of Gratuity Act, 1972",
+          "section_number": "9",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Payment of Gratuity Act, 1972, Section 9"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-can-you-file-a-complaint-against-domestic-violence/",
+          "title": "How can you file a complaint against domestic violence?"
+        },
+        {
+          "act_name": "Railways Act, 1989",
+          "section_number": "143",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Railways Act, 1989, Section 143"
+        }
+      ]
+    },
+    {
+      "id": "q073",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": null,
+      "latency_ms": 184.8,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/blocking-abusers-on-social-media/",
+          "title": "Blocking Abusers on Social Media"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        }
+      ]
+    },
+    {
+      "id": "q074",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 4,
+      "latency_ms": 244.51,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-the-time-limit-to-complain-against-domestic-violence/",
+          "title": "What is the Time Limit to Complain against Domestic Violence?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-the-time-limit-to-complain-against-domestic-violence/",
+          "title": "What is the Time Limit to Complain against Domestic Violence?"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "126",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 126"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "125",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 125"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "145",
+          "source": "Section 145, BNSS 2023",
+          "title": "Procedure"
+        }
+      ]
+    },
+    {
+      "id": "q075",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 209.37,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/refusal-of-bail/",
+          "title": "Refusal of Bail"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "438",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 438"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-is-the-time-limit-to-complain-against-domestic-violence/",
+          "title": "What is the Time Limit to Complain against Domestic Violence?"
+        },
+        {
+          "act_name": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "section_number": "482",
+          "source": "Section 482, BNSS 2023",
+          "title": "Direction for grant of bail to person apprehending arrest"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/where-to-complain-when-police-officer-refuses-to-take-your-fir/",
+          "title": "Where to complain when Police Officer refuses to take your FIR"
+        }
+      ]
+    },
+    {
+      "id": "q076",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 2,
+      "latency_ms": 231.27,
+      "top5": [
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/reporting-online-abuse/",
+          "title": "Reporting Online Abuse"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "154",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 154"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-are-the-sources-and-effects-of-air-pollution/",
+          "title": "What are the sources and effects of air pollution?"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/how-to-file-an-fir/",
+          "title": "How to file an FIR"
+        },
+        {
+          "act_name": "Nyaaya Legal Explainers",
+          "section_number": "",
+          "source": "https://nyaaya.org/legal-explainer/what-are-the-sources-and-effects-of-air-pollution/",
+          "title": "What are the sources and effects of air pollution?"
+        }
+      ]
+    },
+    {
+      "id": "q077",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 1,
+      "latency_ms": 272.32,
+      "top5": [
+        {
+          "act_name": "Indian Evidence Act, 1872",
+          "section_number": "25",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Indian Evidence Act, 1872, Section 25"
+        },
+        {
+          "act_name": "Indian Evidence Act, 1872",
+          "section_number": "26",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Indian Evidence Act, 1872, Section 26"
+        },
+        {
+          "act_name": "Bharatiya Sakshya Adhiniyam, 2023",
+          "section_number": "23",
+          "source": "Section 23, BSA 2023",
+          "title": "Confession to police officer"
+        },
+        {
+          "act_name": "Indian Evidence Act, 1872",
+          "section_number": "24",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Indian Evidence Act, 1872, Section 24"
+        },
+        {
+          "act_name": "Code of Criminal Procedure Act, 1973",
+          "section_number": "164",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Code of Criminal Procedure Act, 1973, Section 164"
+        }
+      ]
+    },
+    {
+      "id": "q078",
+      "type": "old_law",
+      "category": "Criminal Law",
+      "known_issue": null,
+      "rank": 3,
+      "latency_ms": 240.32,
+      "top5": [
+        {
+          "act_name": "Bharatiya Sakshya Adhiniyam, 2023",
+          "section_number": "158",
+          "source": "Section 158, BSA 2023",
+          "title": "Impeaching credit of witness"
+        },
+        {
+          "act_name": "Bharatiya Sakshya Adhiniyam, 2023",
+          "section_number": "6",
+          "source": "Section 6, BSA 2023",
+          "title": "Motive, preparation and previous or subsequent conduct"
+        },
+        {
+          "act_name": "Indian Evidence Act, 1872",
+          "section_number": "32",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Indian Evidence Act, 1872, Section 32"
+        },
+        {
+          "act_name": "Indian Evidence Act, 1872",
+          "section_number": "8",
+          "source": "mratanusarkar/Indian-Laws",
+          "title": "Indian Evidence Act, 1872, Section 8"
+        },
+        {
+          "act_name": "Bharatiya Sakshya Adhiniyam, 2023",
+          "section_number": "26",
+          "source": "Section 26, BSA 2023",
+          "title": "Cases in which statement of relevant fact by person who is dead or cannot be found, etc., is"
+        }
+      ]
+    }
+  ]
+}
