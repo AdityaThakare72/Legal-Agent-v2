@@ -171,12 +171,31 @@ def load_vector_store() -> Any:
 _index: LegalIndex | None = None
 
 
+def check_embeddings(vector_store: Any) -> None:
+    """Embed one test query so a bad API key fails here, not silently later.
+
+    Without this, a rejected key only breaks the vector half of each search and
+    the retriever quietly returns keyword-only results.
+    """
+    try:
+        vector_store.embeddings.embed_query("test")
+    except Exception as exc:
+        raise ToolError(
+            "The Gemini API key was rejected or the embedding call failed, so "
+            f"vector search cannot run: {exc}. Check GOOGLE_API_KEY in .env."
+        ) from exc
+
+
 def get_index() -> LegalIndex:
     global _index
     if _index is None:
         logger.info("Loading knowledge base and building BM25 index ...")
         try:
-            _index = LegalIndex(load_vector_store())
+            vector_store = load_vector_store()
+            check_embeddings(vector_store)
+            _index = LegalIndex(vector_store)
+        except ToolError:
+            raise
         except Exception as exc:
             # Most common cause: the repo was cloned without Git LFS, so
             # chroma_db holds small pointer files, not the database.
