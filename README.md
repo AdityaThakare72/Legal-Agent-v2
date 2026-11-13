@@ -8,7 +8,7 @@ Deployed on [Streamlit Community Cloud](https://streamlit.io/cloud).
 
 `mcp_server.py` exposes the same hybrid retriever over MCP, so any MCP client can search the knowledge base.
 
-- `search_indian_law` (tool): hybrid search, optional `category` / `act_name` filter, `top_k` 1 to 10
+- `search_indian_law` (tool): hybrid search, optional `category` / `act_name` filter, `top_k` 1 to 10. Returns `{"results": [...], "warning": ...}`; `warning` is null unless vector search failed and the results are keyword-only
 - `list_acts` (tool): acts with chunk counts, gives the exact `act_name` to filter on
 - `legal://categories` (resource): the category list
 
