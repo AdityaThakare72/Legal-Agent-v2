@@ -216,3 +216,19 @@ def test_startup_check_rejects_bad_api_key(monkeypatch):
     result = call_search({"query": "theft"})
     assert result.is_error
     assert "Gemini API key was rejected" in result.content[0].text
+
+
+def test_exclusion_can_be_turned_off(index):
+    from src.retriever import build_hybrid_retriever
+    from src.utils import load_bm25_documents
+
+    vector_store = index.retriever._vector_store
+    everything = build_hybrid_retriever(vector_store, load_bm25_documents(vector_store), excluded_acts=[])
+
+    keyword = everything.invoke("punishment for theft", use=("bm25",))
+    assert EXCLUDED in [d.metadata["act_name"] for d in keyword]
+    vector = everything.invoke("theft", use=("vector",))
+    assert EXCLUDED in [d.metadata["act_name"] for d in vector]
+
+    # The default retriever still leaves them out.
+    assert EXCLUDED not in [d.metadata["act_name"] for d in index.retriever.invoke("punishment for theft")]
