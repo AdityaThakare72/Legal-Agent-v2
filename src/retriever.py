@@ -15,6 +15,7 @@ too aggressive.
 from __future__ import annotations
 
 import logging
+import re
 from typing import Any
 
 from langchain_community.retrievers import BM25Retriever
@@ -26,6 +27,19 @@ logger = logging.getLogger(__name__)
 
 # RRF smoothing constant (matches LangChain's EnsembleRetriever default).
 RRF_C = 60
+
+
+# Common words that only add noise to keyword matching. "section" stays: it
+# matters for queries like "section 303".
+STOPWORDS = {
+    "the", "of", "a", "an", "is", "what", "does", "to", "in",
+    "for", "and", "or", "my", "i", "can", "under",
+}
+
+
+def tokenize(text: str) -> list[str]:
+    """BM25 tokens: lowercase runs of letters and digits, minus stopwords."""
+    return [t for t in re.findall(r"[a-z0-9]+", text.lower()) if t not in STOPWORDS]
 
 
 def drop_excluded_acts(
@@ -149,7 +163,7 @@ def build_hybrid_retriever(
         raise RuntimeError("No documents supplied for the BM25 index.")
 
     try:
-        bm25_retriever = BM25Retriever.from_documents(chunks_for_bm25)
+        bm25_retriever = BM25Retriever.from_documents(chunks_for_bm25, preprocess_func=tokenize)
         bm25_retriever.k = RETRIEVER_K
     except Exception as exc:
         logger.exception("Failed to build BM25 retriever.")
